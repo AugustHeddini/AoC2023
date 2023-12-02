@@ -1,6 +1,7 @@
-use std::fs;
+use std::{fs, time::Instant};
 
 fn main() {
+    let start = Instant::now();
     let input = fs::read_to_string("input").unwrap();
 
     let mut total = 0;
@@ -26,4 +27,7 @@ fn main() {
     }
 
     println!("Total: {}", total);
+
+    let runtime = start.elapsed();
+    println!("Time {:.2?}", runtime);
 }
